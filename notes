@@ -1,0 +1,8 @@
+Básicamente el ciclo de Redux sería algo como:
+
+Tienes tu vista (UI)
+Tu vista va a enviar una acción
+Tu acción va a llamar un reducer
+Tu reducer va a llamar a tu store
+Tu store va a actualizar el estado
+El estado va a actualizar tu vista (interfaz/UI)
