@@ -26,10 +26,15 @@ function handleSubmit(e){
         }
     ]
 
+//    create store recibe tres parametros
+//    1- el state
+//    2- state inicial
+//    3- extension para el browser para hacer debug, esto ultimo solo se tiene que poner en modo de produccion  
    let store = createStore(
         state => state,
         initialState,
         // extension para window redux (solo poner en el desarrollo)
+        // link para la extensio https://github.com/zalmoxisus/redux-devtools-extension
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
 
@@ -40,7 +45,7 @@ function handleSubmit(e){
         
            let element = document.createElement('p')
            let text = document.createTextNode(items.title)
-           
+
             // tambien se puede hacer de esta manera
             // element.textContent = items.title
            
