@@ -68,25 +68,35 @@ function handleSubmit(e){
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
 
-    let container = document.getElementById('playlist')
-    let playlist = store.getState()
-
-    playlist.forEach(items => {
-        
-           let element = document.createElement('p')
-           let text = document.createTextNode(items.title)
-
-            // tambien se puede hacer de esta manera
-            // element.textContent = items.title
-           
-           element.appendChild(text)
-           container.appendChild(element)
-
-    });
-
     //obtenemos los datos de mi store
     // console.log(store.getState() )
 
+    function render() {
+        let container = document.getElementById('playlist')
+        let playlist = store.getState()
+        
+        container.innerHTML = ''
+
+        playlist.forEach(items => {
+            
+               let element = document.createElement('p')
+               let text = document.createTextNode(items.title)
+    
+                // tambien se puede hacer de esta manera
+                // element.textContent = items.title
+               
+               element.appendChild(text)
+               container.appendChild(element)
+    
+        });
+    }
+    render()
+
+    const handleChange = () => {
+        render()
+    }
+
+    store.subscribe(handleChange)
 
 // NOTA MUY IMPORTANTE
 // Reducer
