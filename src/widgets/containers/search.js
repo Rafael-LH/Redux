@@ -12,7 +12,7 @@ class SearchContainer extends Component {
     console.log(this.input.value, 'submit')
     this.props.dispatch({
       type: 'SEARCH_VIDEO',
-      playload:{ // por buena practica mandamos un objeto
+      payload:{ // por buena practica mandamos un objeto
         query: this.input.value
       }
     })

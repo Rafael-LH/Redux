@@ -8,10 +8,12 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux'
 import reducer from '../reducers/data'
 
+// initialState de mi store
    const initialState = {
             data:{
                 // spread operator
-                ...data //nos estamos trayendo nuestra data de la API
+                ...data, //nos estamos trayendo nuestra data de la API
+                search: []
             }
     }
 
