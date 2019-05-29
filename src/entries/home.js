@@ -12,9 +12,9 @@ import reducer from '../reducers/data'
    const initialState = {
             data:{
                 // spread operator
-                ...data, //nos estamos trayendo nuestra data de la API
-                search: []
-            }
+                ...data//nos estamos trayendo nuestra data de la API
+            },
+            search: []
     }
 
 const store = createStore(

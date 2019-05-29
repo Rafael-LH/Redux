@@ -6,7 +6,6 @@ import ModalContainer from '../../widgets/containers/modal';
 import Modal from '../../widgets/components/modal';
 import HandleError from '../../error/containers/handle-error';
 import VideoPlayer from '../../player/containers/video-player';
-
 //connect de react-redux nos ayuda a conectar datos de nuestra aplicacion
 import {connect} from 'react-redux'
 
@@ -33,6 +32,7 @@ class Home extends Component {
           <Categories
             categories={this.props.categories}
             handleOpenModal={this.handleOpenModal}
+            search={this.props.search}
           />
           {
             this.state.modalVisible &&
@@ -61,7 +61,8 @@ const mapStateToProps = (state, props) => {
       return{
             //aqui le estoy retornando nuevas propiedades a mi Home, por eso en categories utilizo pros en vez de data
             // porque los datos ya me estan llegando de mis pros this.props.categories 
-             categories: state.data.categories 
+             categories: state.data.categories,
+             search: state.search 
       }
 }
 
