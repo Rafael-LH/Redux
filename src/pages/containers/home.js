@@ -58,11 +58,16 @@ const mapStateToProps = (state, props) => {
   //los datos que me llegaran de state seran los datos que tengo en mi estado de redux que es el initialState que esta en 
   //el entrie de home que esos datos los jala de nuestra api json
   //el props seran las propiedades que le puedan llegar a mi Home
+
+    const categories = state.data.categories.map(categoryId => (
+          state.data.entities.categories[categoryId]
+    ))
+
       return{
-            //aqui le estoy retornando nuevas propiedades a mi Home, por eso en categories utilizo pros en vez de data
+            //aqui le estoy retornando nuevas propiedades a mi Home, por eso en categories utilizo props en vez de data
             // porque los datos ya me estan llegando de mis pros this.props.categories 
-             categories: state.data.categories,
-             search: state.search 
+             categories: categories,
+             search: state.data.search 
       }
 }
 

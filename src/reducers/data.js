@@ -1,6 +1,13 @@
+import schema from '../schemas/index'
 
+   const initialState = { 
+            //no le pongo data porque en mi index de mis reducers a la hora de combinarlos ahi es donde le doy el hey
+            entities: schema.entities,   
+            categories: schema.result.categories,
+            search: []
+    }
 
-const data = (state, action) => {
+const data = (state = initialState, action) => {
     switch (action.type) {
         case 'SEARCH_VIDEO':
 
@@ -18,7 +25,7 @@ const data = (state, action) => {
             //SOLUCION 2
             if(action.payload.query){
                 
-                state.data.categories.map(items => {
+                state.schema.categories.map(items => {
                     newList = items.playlist.filter(item => {
                         return item.author.toLowerCase().includes(action.payload.query.toLowerCase())
                         })

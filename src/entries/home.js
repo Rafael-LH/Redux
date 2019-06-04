@@ -2,31 +2,32 @@ import React from 'react';
 import { hydrate, render } from 'react-dom';
 import Home from '../pages/containers/home';
 // import Playlist from './src/playlist/components/playlist';
-import data from '../api.json';
+// import data from '../api.json';
 // console.log('Hola mundo!' )
-import normalizedData from '../schemas/index.js'
 import {createStore} from 'redux';
 import {Provider} from 'react-redux'
-import reducer from '../reducers/data'
-
-console.log(normalizedData)
+import reducer from '../reducers/index' // aqui em estroy trallendo mis multiples reducers
 
 // initialState de mi store
-   const initialState = {
-            data:{
-                // spread operator
-                ...data//nos estamos trayendo nuestra data de la API
-            },
-            search: []
-    }
+//    const initialState = { //mejor lo puse lo que necesito en cada uno de mis reducers
+//             data:{
+//                 entities: data.entities,   
+//                 categories: data.result.categories,
+//                 search: []
+//             },
+//             modal:{
+//                 visibility: false,
+//                 mediaId: null,
+//             }
+//     }
 
 const store = createStore(
           reducer,
-          initialState,
+          {},
           window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-console.log(store.getState() ); //obtenemos los datos de nuestro store
+// console.log(store.getState() ); //obtenemos los datos de nuestro store
 
 const homeContainer = document.getElementById('home-container')
 
