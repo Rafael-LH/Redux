@@ -7,6 +7,7 @@ import Home from '../pages/containers/home';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux'
 import reducer from '../reducers/index' // aqui em estroy trallendo mis multiples reducers
+import { Map as map} from 'immutable' //aqui solamente le estoy dando un alias que se llama map
 
 // initialState de mi store
 //    const initialState = { //mejor lo puse lo que necesito en cada uno de mis reducers
@@ -23,7 +24,7 @@ import reducer from '../reducers/index' // aqui em estroy trallendo mis multiple
 
 const store = createStore(
           reducer,
-          {},
+          map(),
           window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 

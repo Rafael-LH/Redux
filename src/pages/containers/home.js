@@ -59,15 +59,15 @@ const mapStateToProps = (state, props) => {
   //el entrie de home que esos datos los jala de nuestra api json
   //el props seran las propiedades que le puedan llegar a mi Home
 
-    const categories = state.data.categories.map(categoryId => (
-          state.data.entities.categories[categoryId]
+    const categories = state.get('data').get('categories').map(categoryId => ( //de esta manera es como me traigo mis datos immutables
+          state.get('data').get('entities').get('categories').get(categoryId)
     ))
 
       return{
             //aqui le estoy retornando nuevas propiedades a mi Home, por eso en categories utilizo props en vez de data
             // porque los datos ya me estan llegando de mis pros this.props.categories 
              categories: categories,
-             search: state.data.search 
+             search: state.get('data').get('search') 
       }
 }
 

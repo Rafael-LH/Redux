@@ -1,11 +1,14 @@
 import schema from '../schemas/index'
+// nos permite cambiar cual quier cosa de JS a immutable
+import { fromJS } from 'immutable'
 
-   const initialState = { 
+// immutable es para que no puedan cambiar el valor de estos datos, esto funciona mucho para trabajar en equipo
+   const initialState = fromJS({ 
             //no le pongo data porque en mi index de mis reducers a la hora de combinarlos ahi es donde le doy el hey
             entities: schema.entities,   
             categories: schema.result.categories,
             search: []
-    }
+    })
 
 const data = (state = initialState, action) => {
     switch (action.type) {
